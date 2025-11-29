@@ -30,7 +30,7 @@ void sapXepPhanTuMang()
 			tmp = integerArray[i];
 			integerArray[i] = integerArray[i + 1];
 			integerArray[i + 1] = tmp;
-			i = -1;
+			i = -1; 
 			}
 	}
 	printf("Xuat du lieu cho mang %d phan tu\n", length);
