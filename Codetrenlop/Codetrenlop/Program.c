@@ -7,6 +7,7 @@ void kiemTraSoNguyen()
 {
 	printf("Kiem Tra So Nguyen");
 	printf("\n");
+
 }
 
 void sapXepPhanTuMang()
