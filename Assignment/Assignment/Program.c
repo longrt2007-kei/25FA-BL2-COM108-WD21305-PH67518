@@ -211,7 +211,7 @@ void doiTien()
         {
             printf("%d to %d\n", soTo, menhGia[i]);
         }
-        // Cap nhat lai so tien con du sau khi da doi
+        
         soTien = soTien % menhGia[i];
     }
 }
@@ -246,11 +246,7 @@ void tinhLaiSuatVayNganHangVayTraGop()
         float tongPhaiTra = gocPhaiTra + laiPhaiTra;
         // tru bot tien goc da tra de ra du ra no moi
         duNoConLai = duNoConLai - gocPhaiTra;
-        // xu ly lam tron so 0 cho dep o thang cuoi ( de phong loi so le nhu -0.00)
-        if (duNoConLai < 0)
-        {
-            duNoConLai = 0;
-        }
+       
         printf("%d \t %.0f \t %.0f \t %.0f \t   %.0f\n",i + 1, laiPhaiTra, gocPhaiTra, tongPhaiTra, duNoConLai);
     }
 }
@@ -289,11 +285,8 @@ void chuongTrinhVayTienMuaXe()
         float tienLai = duNo * laiSuatThang;
         float tongTra = gocHangThang + tienLai;
         duNo = duNo - gocHangThang;
-        // Xu ly so am nho (do lam tron) o thang cuoi
-        if (duNo <0)
-        {
-            duNo = 0;
-        }
+
+   
         printf("%d \t     %.0f \t     %.0f \t      %.0f \t      %.0f\n", i + 1, tienLai, gocHangThang, tongTra, duNo);
     }
     printf("... (Con tiep %d thang nua) ...\n", thoiHan - 12);
