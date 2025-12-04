@@ -2,6 +2,7 @@
 // Chuong trinh phan mem Bat dau thuc thi & Ket thuc o day.
 
 #include <stdio.h>
+#include <string.h>
 
 void kiemTraSoNguyen()
 {
@@ -70,18 +71,48 @@ void demoMang2Chieu()
 void demoString()
 {
 	//string - string.h
-	char mangKyTu[10] = "ANH";
+	//char mangKyTu[50];
 
 	//gets(mangKyTu);
-	while (getchar() != '\n');
+	//while (getchar() != '\n');
 
-	printf("Nhap du liue String: ");
-	fgets(mangKyTu, sizeof(mangKyTu), stdin);
+	//printf("Nhap du lieu String: ");
+	//fgets(mangKyTu, sizeof(mangKyTu), stdin);
 	// loop + printf("%c\n"
-	printf("%s", mangKyTu);
-	printf("\n");
+	//printf("%s", mangKyTu);
+	//printf("\n");
 	//puts(mangKyTu);
+
+	//printf("%d", strlen(mangKyTu) - 1);
+	//printf("\n");
+	
+	printf("%d", strcmp("B", "b"));
+	printf("\n");
+	
+	char str[5] = "ABC";
+	printf("%s", strrev(str));
+	printf("\n");
+	
+	printf("%s", strlwr(str));
+	printf("\n");
+	
+	printf("%s", strupr(str));
+	printf("\n");
+
+	if (strstr("ABC", "D") != NULL)
+	{
+		printf(strstr("ABC", "D"));
+	}
+	else
+	{
+		printf("Not found");
+	}
+	
+	
+
 }
+	
+
 
 void lapChucNang(int chonChucNang)
 {
