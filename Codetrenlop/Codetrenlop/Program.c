@@ -45,16 +45,7 @@ void sapXepPhanTuMang()
 void demoMang2Chieu()
 {
 
-	//string - string.h
-	char mangKyTu[10] = "ANH";
-	// scanf(" %c"
-	//gets(mangKyTu);
-	for (int i = 0; i < 3; i++)
-	{
-		scanf(" %c", &mangKyTu[i]);
-	}
-	// loop + printf("%c\n"
-	puts(mangKyTu);
+
 
 	int array[2][3];
 	for (int j = 0; j < 3; j++)
@@ -76,6 +67,22 @@ void demoMang2Chieu()
 	}
 }
 
+void demoString()
+{
+	//string - string.h
+	char mangKyTu[10] = "ANH";
+
+	//gets(mangKyTu);
+	while (getchar() != '\n');
+
+	printf("Nhap du liue String: ");
+	fgets(mangKyTu, sizeof(mangKyTu), stdin);
+	// loop + printf("%c\n"
+	printf("%s", mangKyTu);
+	printf("\n");
+	//puts(mangKyTu);
+}
+
 void lapChucNang(int chonChucNang)
 {
 	int tiepTuc = 1;
@@ -91,6 +98,9 @@ void lapChucNang(int chonChucNang)
 			break;
 		case 3:
 			demoMang2Chieu();
+			break;
+		case 4:
+			demoString();
 			break;
 		default:
 			printf("Chon sai. Chuc nang hop le [0-3]");
@@ -116,6 +126,8 @@ int main()
 		printf("2. Sap xep phan tu mang 1 chieu");
 		printf("\n");
 		printf("3. Demo mang 2 chieu");
+		printf("\n");
+		printf("4. Demo chuoi ky tu (String/Char array");
 		printf("\n");
 		printf("0. Thoat");
 		printf("\n");
