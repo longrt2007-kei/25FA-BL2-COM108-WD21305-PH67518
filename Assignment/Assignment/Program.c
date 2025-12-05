@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <math.h>
+#include <string.h>
 
 void kiemTraSoNguyen()
 {
@@ -194,7 +195,7 @@ void doiTien()
     int soLuongMenhGia = 9;
     do
     {
-        printf("Nhap so tien can doi (so nguyen duong): ");
+        printf("Nhap so tien can doi: ");
         scanf("%d", &soTien);
         if (soTien <= 0)
         {
@@ -294,12 +295,129 @@ void chuongTrinhVayTienMuaXe()
 
 void sapXepThongTinSinhVien()
 {
+    int n;
+    printf("Nhap so sinh vien: ");
+    scanf("%d", &n);
+    while (getchar() != '\n');
 
+    char hoTen[100][50];
+    float diem[100];
+    char hocLuc[100][20];
+
+
+    for (int i = 0; i < n; i++)
+    {
+       
+        printf("\nNhap ho ten sinh vien %d: ", i + 1);
+        fgets(hoTen[i], sizeof(hoTen[i]), stdin);
+        hoTen[i][strcspn(hoTen[i], "\n")] = '\0';
+
+        printf("Nhap diem: ");
+        scanf("%f", &diem[i]);
+        while (getchar() != '\n');
+
+        // Xep loai hoc luc
+        if (diem[i] >= 9.0)
+        {
+            strcpy(hocLuc[i], "Xuat sac");
+        }
+        else if (diem[i] >= 8.0)
+        {
+            strcpy(hocLuc[i], "Gioi");
+        }
+        else if (diem[i] >= 6.5)
+        {
+            strcpy(hocLuc[i], "Kha");
+        } 
+        else if (diem[i] >= 5.0)
+        {
+            strcpy(hocLuc[i], "Trung binh");
+        }
+        else
+        {
+            strcpy(hocLuc[i], "Yeu");
+        }
+    }
+
+    for (int i = 0; i < n - 1; i++)
+    {
+        for (int j = i + 1; j < n; j++)
+        {
+            if (diem[i] < diem[j])
+            {
+
+                float tempDiem = diem[i];
+                diem[i] = diem[j];
+                diem[j] = tempDiem;
+
+                // doi ten
+                char tempTen[50];
+                strcpy(tempTen, hoTen[i]);
+                strcpy(hoTen[i], hoTen[j]);
+                strcpy(hoTen[j], tempTen);
+
+                char tempHL[20];
+                strcpy(tempHL, hocLuc[i]);
+                strcpy(hocLuc[i], hocLuc[j]);
+                strcpy(hocLuc[j], tempHL);
+            }
+        }
+    }
+
+
+    printf(" DANH SACH SINH VIEN SAU KHI SAP XEP \n");
+    for (int i = 0; i < n; i++)
+    {
+        printf("%d. Ho ten: %s | Diem: %.2f | Hoc luc: %s\n",
+            i + 1, hoTen[i], diem[i], hocLuc[i]);
+    }
 }
 
 void xayDungGameFPOLY()
 {
 
+    int so1, so2;
+    int kq1, kq2;
+    int dem = 0;
+
+
+    printf("GAME MAY MAN\n");
+    printf("Nhap so thu nhat (1-15): ");
+    scanf("%d", &so1);
+
+    printf("Nhap so thu hai (1-15): ");
+    scanf("%d", &so2);
+    srand(time(0));
+
+    kq1 = rand() % 15 + 1;
+    kq2 = rand() % 15 + 1;
+
+    printf("Ket qua quay so la: %d va %d\n", kq1, kq2);
+
+
+    if (so1 == kq1 || so1 == kq2)
+    {
+        dem = dem + 1;
+    }
+
+    if (so2 == kq1 || so2 == kq2)
+    {
+        dem = dem + 1;
+    }
+
+
+    if (dem == 2)
+    {
+        printf("Ket qua: Chuc mung ban da trung GIAI NHAT (trung 2 so)!\n");
+    }
+    else if (dem == 1)
+    {
+        printf("Ket qua: Chuc mung ban da trung GIAI NHI (trung 1 so)!\n");
+    }
+    else
+    {
+        printf("Ket qua: Chuc ban may man lan sau (khong trung so nao)!\n");
+    }
 }
 
 void tinhToanPhanSo()
