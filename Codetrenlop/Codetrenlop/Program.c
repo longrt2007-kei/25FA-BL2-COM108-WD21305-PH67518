@@ -15,7 +15,7 @@ void sapXepPhanTuMang()
 {
 	int integerArray[100];
 	int tmp;
-	int length;
+	int length;	
 	printf("Nhap kich thuoc mang: ");
 	scanf("%d", &length);
 	printf("Nhap du lieu cho mang %d phan tu\n", length);
